@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  rstudio: 
+    build: .
+    image: nlezama/sdm_pipeline_n
+    ports: 
+      - "8787:8787"
+    environment: 
+        PASSWORD: manta
+    volumes: 
+      - ./libraries.r:./r.script

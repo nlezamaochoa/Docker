@@ -1,0 +1,15 @@
+{
+    "pipeline": {
+        "name": "clean_dat"
+    },
+    "input": {
+        "pfs": {
+            "repo": "example_dat",
+            "glob": "/"
+        }
+    },
+    "transform": {
+        "image": "nlezama/sdm_pipeline_n",
+        "cmd": ["./clean_dat_n.R", "/pfs/example_data/example.csv", "/pfs/out/cleaned_example.csv"]
+    }
+}
