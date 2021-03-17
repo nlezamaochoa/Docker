@@ -14,7 +14,7 @@ dat_proc_occu_fn<- function(input_df, year_min, year_max,output_csv_path){
   
   if(FALSE){
     input_df<- read.csv("C:\\Users\\nereo\\Documents\\NOAA\\PROJECTS & COLLABORATIONS\\PROJECTS\\FACET\\Docker\\Functions\\example_N/example_data_clean.csv")
-   output_csv_path<- "C:\\Users\\nereo\\Documents\\NOAA\\PROJECTS & COLLABORATIONS\\PROJECTS\\FACET\\Docker\\Functions\\example_N\\example_data_clean_aallyn.csv"
+   #output_csv_path<- "C:\\Users\\nereo\\Documents\\NOAA\\PROJECTS & COLLABORATIONS\\PROJECTS\\FACET\\Docker\\Functions\\example_N\\example_data_clean_aallyn.csv"
     year_min<- 2010
     year_max<- 2015
   }
@@ -57,7 +57,7 @@ proc_occu_csv<- function(input_csv_path, year_min, year_max, output_csv_path){
 
 if(!interactive()){
   # Build up our command line argument parser
-  parser<- arg_parser("Process cleaned Nerea's bycatch csv file")
+  parser<- arg_parser("Process cleaned NOAA NEFSC trawl data csv file")
   # Our first argument, the path to the input csv file
   parser<- add_argument(parser, "input_csv_path", help = "Input .csv file path")
   # Our second argument, the min year to keep
@@ -67,17 +67,10 @@ if(!interactive()){
   # Our fourth argument, the path to the out csv file
   parser<- add_argument(parser, "output_csv_path", help = "Output .csv file path")
   
-  args<- parse_args(parser, "C:\\Users\\nereo\\Documents\\NOAA\\PROJECTS & COLLABORATIONS\\PROJECTS\\FACET\\Docker\\Functions\\example_N\\example.csv",parser,parser, "C:\\Users\\nereo\\Documents\\NOAA\\PROJECTS & COLLABORATIONS\\PROJECTS\\FACET\\Docker\\Functions\\example_N\\example_allyn.csv")
-} else {
   # Parse the arguments
   args<- parse_args(parser)
   print(args)
-}
-  # Process csv
   
-  dat<- read.csv(args$input_csv_path)
+  # Process csv
   proc_occu_csv(args$input_csv_path, args$year_min, args$year_max, args$output_csv_path)
-
-
-
-
+}
